@@ -1,11 +1,7 @@
 .profile{
+  margin: 40px auto 50px;
   width: 880px;
-  height: 120px;
-  margin: 0 auto;
-  padding-top: 40px;
-}
+  display: grid;
+  grid-template-columns: fit-content fit-content 1fr;
 
-.profile__author{}
-.author__button{}
-.profile__subtitle{}
-.profile__button{}
+}

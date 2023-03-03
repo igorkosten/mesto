@@ -1,0 +1,11 @@
+.elements__items{
+  /* max-width: 282px; */
+  /* height: 361px; */
+  padding: 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 17px;
+  max-width: 880px;
+}
