@@ -1,9 +1,13 @@
 .profile__author{
   display: flex;
   align-items: center;
+  gap: 18px;
   font-family: 'Inter';
   font-style: normal;
-font-weight: 500;
-font-size: 42px;
-line-height: 48px;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

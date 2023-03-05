@@ -1,5 +1,6 @@
 .profile__subtitle{
   margin: 0;
+  padding-top: 8px;
   width: 336px;
   height: 18px;
   font-family: 'Inter';
@@ -8,5 +9,5 @@
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
-  padding-top: 16px;
+  /* padding-top: 16px; */
 }
