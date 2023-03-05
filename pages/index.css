@@ -14,7 +14,7 @@
 @import url("../blocks/profile/__add-button/profile__add-button.css");
 @import url("../blocks/profile/__edit-button/profile__edit-button.css");
 @import url("../blocks/profile/__edit-button-image/profile__edit-button-image.css");
-
+@import url("../blocks/profile/__author-block/profile__author-block.css");
 
 
 
@@ -29,6 +29,11 @@
 
 
 @import url("../blocks/footer/footer.css");
+
+@import url("../blocks/popup/popup.css");
+
+
+
 
 
 

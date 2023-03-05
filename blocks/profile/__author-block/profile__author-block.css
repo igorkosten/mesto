@@ -1,0 +1,10 @@
+.profile__author-block{
+  display: flex;
+  /* width: 336px; */
+}
+
+@media (max-width: 767px) {
+.profile__rectangle {
+  /* position: relative; */
+}
+}
