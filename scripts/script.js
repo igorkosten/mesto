@@ -29,3 +29,16 @@ profileEditButton.addEventListener('click', function (){
   popup.classList.add('active')
 })
 
+const likeButton = document.querySelectorAll('.elements__like-button')
+
+likeButton.forEach(function (element) {
+  element.onclick=function (){
+    if (element.classList.contains('activ'))
+  {
+    element.classList.remove('activ')
+  }
+    else {
+      element.classList.add('activ')
+    }
+  }
+});
