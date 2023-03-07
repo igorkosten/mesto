@@ -1,0 +1,12 @@
+.popup__form{
+  margin: 350px auto;
+  width: 430px;
+  height: 330px;
+  background: #ffffff;
+  display: flex;
+ gap: 20px;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+}
