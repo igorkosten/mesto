@@ -20,3 +20,7 @@
   height: 46px;
 }
 }
+
+.popup__form-button-submit:hover {
+  opacity: 0.6;
+}

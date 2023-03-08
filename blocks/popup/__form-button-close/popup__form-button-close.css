@@ -23,3 +23,7 @@ width: 18px;
 height: 18px;
 }
 }
+
+.popup__form-button-close:hover {
+  opacity: 0.6;
+}

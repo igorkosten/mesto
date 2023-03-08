@@ -17,6 +17,8 @@ form.addEventListener('submit', (event) => {
   profileSubTitle.innerHTML = inputDesciptoin.value;
   inputDesciptoin.value = '';
 
+  
+
   popup.classList.remove('active')
 })
 
