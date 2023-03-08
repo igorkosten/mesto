@@ -1,4 +1,21 @@
 .popup__form-input-name{
+  margin-bottom: 27px;
   width: 358px;
   height: 27px;
+  border: 0;
+  opacity: 0.2;
+  border-bottom: 1px solid #000000;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+.popup__form-input-name{
+  width: 238px;
+  height: 27px;
+}
 }
