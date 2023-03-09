@@ -4,11 +4,3 @@
   display: block;
   background: #FFFFFF;
 }
-
-
-@media (max-width: 767px) {
-.popup__button-close-image {
-  /* width: 7.5px;
-  height: 7.5px;
-} */
-}
