@@ -6,7 +6,7 @@ const profileSubTitle = document.querySelector('.profile__subtitle')
 const formButtonClose = document.querySelector('.popup__form-button-close')
 const profileEditButton = document.querySelector('.profile__edit-button')
 const popup = document.querySelector('.popup')
-
+const likeButton = document.querySelectorAll('.elements__like-button')
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -17,8 +17,6 @@ form.addEventListener('submit', (event) => {
   profileSubTitle.innerHTML = inputDesciptoin.value;
   inputDesciptoin.value = '';
 
-  
-
   popup.classList.remove('active')
 })
 
@@ -28,16 +26,17 @@ formButtonClose.addEventListener('click', function (){
 })
 
 profileEditButton.addEventListener('click', function (){
+  inputName.value = profileTitle.innerHTML;
+  inputDesciptoin.value = profileSubTitle.innerHTML;
   popup.classList.add('active')
 })
 
-profileEditButton.addEventListener('click', function (){
+// profileEditButton.addEventListener('click', function (){
 
-inputName.innerHTML = profileTitle.value;
-profileTitle.value = '';
-})
+// inputName.innerHTML = profileTitle.value;
+// profileTitle.value = '';
+// })
 
-const likeButton = document.querySelectorAll('.elements__like-button')
 
 likeButton.forEach(function (element) {
   element.onclick=function (){
