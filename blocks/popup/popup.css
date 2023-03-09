@@ -24,3 +24,162 @@
     max-width: 320px;
   }
 }
+
+
+
+
+
+
+.popup__form{
+  margin: 195px auto;
+  width: 430px;
+  height: 330px;
+  background: #ffffff;
+  display: flex;
+  /* gap: 20px; */
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+}
+
+
+@media (max-width: 767px) {
+  .popup__form {
+    width: 282px;
+    height: 322px;
+  }
+}
+
+.popup__form-button-close{
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #FFFFFF;
+  background: url('../../../images/Close\ Icon.svg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+@media (max-width: 767px) {
+.popup__form-button-close {
+width: 18px;
+height: 18px;
+}
+}
+
+.popup__form-button-close:hover {
+  opacity: 0.6;
+}
+
+.popup__form-button-submit{
+  margin-top: 27px;
+  width: 358px;
+  height: 50px;
+  box-sizing: border-box;
+  background: #000000;
+  border: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+@media (max-width: 767px) {
+.popup__form-button-submit{
+  width: 238px;
+  height: 46px;
+}
+}
+
+.popup__form-button-submit:hover {
+  opacity: 0.6;
+}
+
+.popup__form-input-desciptoin{
+  margin-bottom: 21px;
+  width: 358px;
+  height: 27px;
+  border: 0;
+  opacity: 0.2;
+  border-bottom: 1px solid #000000;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+  .popup__form-input-desciptoin{
+    width: 238px;
+    height: 27px;
+  }
+  }
+
+.popup__form-input-name{
+  margin-bottom: 27px;
+  width: 358px;
+  height: 27px;
+  border: 0;
+  opacity: 0.2;
+  border-bottom: 1px solid #000000;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+.popup__form-input-name{
+  width: 238px;
+  height: 27px;
+}
+}
+
+.popup__form-title{
+  display: block;
+  margin: 34px auto 45px;
+  text-align: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+.popup__form-title {
+  font-size: 18px;
+  line-height: 22px;
+}
+}
+
+.popup__button-close-image{
+  width: 32px;
+  height: 32px;
+  display: block;
+  background: #FFFFFF;
+}
+
+
+@media (max-width: 767px) {
+.popup__button-close-image {
+  /* width: 7.5px;
+  height: 7.5px;
+} */
+}
