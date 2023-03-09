@@ -38,3 +38,7 @@
 @import url("../blocks/popup/__form-input-desciptoin/popup__form-input-desciptoin.css");
 @import url("../blocks/popup/__form-button-submit/popup__form-button-submit.css");
 @import url("../blocks/popup/__form-button-close/popup__form-button-close.css");
+
+h1{
+  color: aqua !important;
+}
