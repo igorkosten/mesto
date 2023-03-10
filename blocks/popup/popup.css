@@ -8,11 +8,6 @@
   display: none;
 }
 
-.popup.active{
-  display: block;
-}
-
-
 @media (max-width: 1023px) {
   .popup {
     max-width: 581px;

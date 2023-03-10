@@ -1,5 +1,5 @@
-.popup__form-input-name{
-  margin-bottom: 27px;
+.popup__input-desciptoin{
+  margin-bottom: 21px;
   width: 358px;
   height: 27px;
   border: 0;
@@ -13,8 +13,8 @@
 }
 
 @media (max-width: 767px) {
-.popup__form-input-name{
-  width: 238px;
-  height: 27px;
-}
-}
+  .popup__input-desciptoin{
+    width: 238px;
+    height: 27px;
+  }
+  }
