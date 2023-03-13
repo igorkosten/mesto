@@ -1,22 +1,20 @@
-.header{
+.header {
   max-width: 880px;
-  height: 74px;
   margin: 0 auto;
-  padding-top: 45px;
+  padding: 45px 0 36px;
   color: #FFFFFF;
   border-bottom: 1px solid rgb(84, 84, 84, 0.7);
 }
 
 @media (max-width: 1023px) {
-.header {
-  max-width: 581px;
-}
+  .header {
+    max-width: 581px;
+  }
 }
 
 @media (max-width: 767px) {
-.header {
-  max-width: 320px;
-  padding: 28px 0 0 27px;
-  height: 56px;
-}
+  .header {
+    max-width: 320px;
+    padding: 28px 0 25px 27px;
+  }
 }

@@ -1,12 +1,12 @@
-.profile__author-block{
+.profile__author-block {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   width: 336px;
 }
 
 @media (max-width: 767px) {
-.profile__author-block{
-  width: 288px;
-  justify-content:center;
-}
+  .profile__author-block {
+    width: 282px;
+    justify-content: center;
+  }
 }

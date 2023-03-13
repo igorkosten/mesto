@@ -1,16 +1,16 @@
-.body{
+.body {
   background-color: #000000;
 }
 
 @media (max-width: 1023px) {
   .body {
     margin: 0 auto;
-      max-width: 581px;
-    }
+    max-width: 581px;
   }
-  
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
   .body {
-      max-width: 320px;
-    }
+    max-width: 320px;
   }
+}

@@ -1,19 +1,24 @@
-.profile__add-button{
-  margin: 40px 0 0;
-  background-color: black;
-  border-color: white;
+.profile__add-button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  background: no-repeat center url('../../../images/AddIcon.svg');
+  border: 1px solid #ffffff;
+  border-radius: 2px;
   color: white;
   width: 150px;
   height: 50px;
   align-self: center;
   font-size: 30px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
-.profile__add-button {
-  width: 282px;
-}
+  .profile__add-button {
+    width: 282px;
+    background: no-repeat center url('../../../images/AddIconSm.svg');
+  }
 }
 
 .profile__add-button:hover {

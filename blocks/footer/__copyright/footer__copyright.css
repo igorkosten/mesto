@@ -1,7 +1,6 @@
-.footer {
-  margin: 3px auto 0;
-  max-width: 880px;
-  height: 18px;
+.footer__copyright {
+  margin: 0;
+  padding: 66px 0 60px;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -10,14 +9,9 @@
   color: #545454;
 }
 
-@media (max-width: 1023px) {
-  .footer {
-    max-width: 581px;
-  }
-}
-
 @media (max-width: 767px) {
-  .footer {
-    max-width: 320px;
+  .footer__copyright {
+    font-size: 14px;
+    padding: 43px 19px 30px;
   }
 }
