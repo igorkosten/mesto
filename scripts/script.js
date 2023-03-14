@@ -1,6 +1,6 @@
-const container = document.querySelector('.popup__container');
-const inputName = document.querySelector('.popup__input_name');
-const inputDesciptoin = document.querySelector('.popup__input_desciptoin')
+const form = document.querySelector('.popup__form');
+const inputName = document.querySelector('.popup__input_content_name');
+const inputDesciptoin = document.querySelector('.popup__input_content_desciptoin')
 const profileTitle = document.querySelector('.profile__title')
 const profileSubTitle = document.querySelector('.profile__subtitle')
 const buttonClose = document.querySelector('.popup__button-close')
@@ -12,7 +12,7 @@ function remove(){
   popup.classList.remove('popup_opened')
 }
 
-container.addEventListener('submit', (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   profileTitle.textContent = inputName.value;
   profileSubTitle.textContent = inputDesciptoin.value;

@@ -18,8 +18,7 @@
 @media (max-width: 767px) {
   .popup__input {
     width: 238px;
+    margin-bottom: 35px;
     padding: 0 0 5px;
-    margin-top: 33px;
-    /* padding: 10px 0 13px; */
   }
 }
