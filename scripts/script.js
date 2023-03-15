@@ -7,7 +7,16 @@ const buttonClose = document.querySelector('.popup__button-close')
 const profileEditButton = document.querySelector('.profile__edit-button')
 const popup = document.querySelector('.popup')
 const likeButton = document.querySelectorAll('.elements__like-button')
-const elementAddButtom = document.querySelectorAll('.profile__add-button')
+const elementAddButtom = document.querySelector('.profile__add-button')
+const popupAdd = document.querySelector('.popup_items-add')
+const formAdd = document.querySelector('.popup__form_items-add')
+
+const inputPlace = document.querySelector('.popup__input_place_name')
+const inputUrl = document.querySelector('.popup__input_place_url')
+
+const buttonCloseAdd = document.querySelector('.popup__button-close_items-add')
+
+
 
 function remove(){
   popup.classList.remove('popup_opened')
@@ -41,32 +50,32 @@ likeButton.forEach(function (element) {
   }
 });
 
-
-
+// // Спринт 5
 
 elementAddButtom.addEventListener('click', function (){
 
-  popup.classList.add('popup_opened')
+  popupAdd.classList.add('popup_opened')
 })
 
 
 
-
-
-
-
-
-form1.addEventListener('submit', (event) => {
+formAdd.addEventListener('submit', (event) => {
   event.preventDefault();
+// найти инпуты
+// вызвать функцию, которая добавит карточку
+createCadr(inputPlace.value,inputUrl.value) 
+// в неё сунуть значения из двух инпутов
 
-найти инпуты
-
-вызвать функцию, которая добавит карточку
-в неё сунуть значения из двух инпутов
-
-закрыть попап
-
+// закрыть попап
+popupAdd.classList.remove('popup_opened')
 })
+
+buttonCloseAdd.addEventListener('click', function(){
+  popupAdd.classList.remove('popup_opened')
+}
+)
+
+
 
 
 
@@ -121,7 +130,6 @@ const createCadr = (name,link) => {
   let myCard=document.createElement('li')
   myCard.classList.add('elements__item')
   document.querySelector('.elements__items').append(myCard)
-  
 
   let imgCard=document.createElement('img')
   imgCard.classList.add('elements__item-image')
