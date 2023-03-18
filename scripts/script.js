@@ -5,7 +5,7 @@ const profileTitle = document.querySelector('.profile__title')
 const profileSubTitle = document.querySelector('.profile__subtitle')
 const buttonClose = document.querySelector('.popup__button-close')
 const profileEditButton = document.querySelector('.profile__edit-button')
-const popup = document.querySelector('.popup')
+const popup_profile = document.querySelector('.popup_profile')
 const likeButton = document.querySelectorAll('.elements__like-button')
 const elementAddButtom = document.querySelector('.profile__add-button')
 const popupAdd = document.querySelector('.popup_items-add')
@@ -15,13 +15,16 @@ const inputPlace = document.querySelector('.popup__input_place_name')
 const inputUrl = document.querySelector('.popup__input_place_url')
 const buttonCloseAdd = document.querySelector('.popup__button-close_items-add')
 
+const popupImageView = document.querySelector('.popup_image-view')
+const buttonCloseImageView = document.querySelector('.popup__button-close_image-view')
+
 
 
 
 // Всё про карточку с профайлом
 
 function remove(){
-  popup.classList.remove('popup_opened')
+  popup_profile.classList.remove('popup_opened')
 }
 
 form.addEventListener('submit', (event) => {
@@ -36,7 +39,7 @@ buttonClose.addEventListener('click', remove)
 profileEditButton.addEventListener('click', function (){
   inputName.value = profileTitle.textContent;
   inputDesciptoin.value = profileSubTitle.textContent;
-  popup.classList.add('popup_opened')
+  popup_profile.classList.add('popup_opened')
 })
 
 
@@ -80,9 +83,9 @@ const createCadr = (name,link) => {
 
   let imgCard=document.createElement('img')
   imgCard.classList.add('elements__item-image')
-  imgCard.onclick = function () { 
-    (imgCard.classList.toggle('elements__item-image_active'))
-  }
+  imgCard.addEventListener('click', function (){
+    popupImageView.classList.add('popup_opened')
+  })
   imgCard.src=link
   myCard.append(imgCard)
 
@@ -123,7 +126,6 @@ elementAddButtom.addEventListener('click', function (){
   popupAdd.classList.add('popup_opened')
 })
 
-
 formAdd.addEventListener('submit', (event) => {
   event.preventDefault();
 // найти инпуты
@@ -147,3 +149,12 @@ initialCards.forEach(function (element) {
 
 
 // Всплывающая картинка
+
+buttonCloseImageView.addEventListener('click', function(){
+  popupImageView.classList.remove('popup_opened')
+}
+)
+
+  // imgCard.onclick = function () { 
+  //   (imgCard.classList.toggle('elements__item-image_active'))
+  // }
