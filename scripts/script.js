@@ -13,10 +13,12 @@ const formAdd = document.querySelector('.popup__form_items-add')
 
 const inputPlace = document.querySelector('.popup__input_place_name')
 const inputUrl = document.querySelector('.popup__input_place_url')
-
 const buttonCloseAdd = document.querySelector('.popup__button-close_items-add')
 
 
+
+
+// Всё про карточку с профайлом
 
 function remove(){
   popup.classList.remove('popup_opened')
@@ -29,8 +31,7 @@ form.addEventListener('submit', (event) => {
   remove()
 })
 
-buttonClose.addEventListener('click', remove
-)
+buttonClose.addEventListener('click', remove)
 
 profileEditButton.addEventListener('click', function (){
   inputName.value = profileTitle.textContent;
@@ -38,63 +39,9 @@ profileEditButton.addEventListener('click', function (){
   popup.classList.add('popup_opened')
 })
 
-likeButton.forEach(function (element) {
-  element.onclick=function (){
-    if (element.classList.contains('elements__like-button_active'))
-  {
-    element.classList.remove('elements__like-button_active')
-  }
-    else {
-      element.classList.add('elements__like-button_active')
-    }
-  }
-});
-
-// // Спринт 5
-
-elementAddButtom.addEventListener('click', function (){
-
-  popupAdd.classList.add('popup_opened')
-})
 
 
-
-formAdd.addEventListener('submit', (event) => {
-  event.preventDefault();
-// найти инпуты
-// вызвать функцию, которая добавит карточку
-createCadr(inputPlace.value,inputUrl.value) 
-// в неё сунуть значения из двух инпутов
-
-// закрыть попап
-popupAdd.classList.remove('popup_opened')
-})
-
-buttonCloseAdd.addEventListener('click', function(){
-  popupAdd.classList.remove('popup_opened')
-}
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// большая функция по первоначальному созданию всех карточек
 
 
 const initialCards = [
@@ -133,6 +80,9 @@ const createCadr = (name,link) => {
 
   let imgCard=document.createElement('img')
   imgCard.classList.add('elements__item-image')
+  imgCard.onclick = function () { 
+    (imgCard.classList.toggle('elements__item-image_active'))
+  }
   imgCard.src=link
   myCard.append(imgCard)
 
@@ -159,20 +109,41 @@ const createCadr = (name,link) => {
 
   let button2Card=document.createElement('button')
   button2Card.classList.add('elements__like-button')
-  button2Card.onclick=function (){
-    if (button2Card.classList.contains('elements__like-button_active'))
-  {
-    button2Card.classList.remove('elements__like-button_active')
-  }
-    else {
-      button2Card.classList.add('elements__like-button_active')
-    }
+  button2Card.onclick = function () { 
+    (button2Card.classList.toggle('elements__like-button_active'))
   }
   divCard.append(button2Card)
 }
 
 
+// Всё про добавление карточки
+
+elementAddButtom.addEventListener('click', function (){
+
+  popupAdd.classList.add('popup_opened')
+})
+
+
+formAdd.addEventListener('submit', (event) => {
+  event.preventDefault();
+// найти инпуты
+// вызвать функцию, которая добавит карточку
+createCadr(inputPlace.value,inputUrl.value) 
+// в неё сунуть значения из двух инпутов
+
+// закрыть попап
+popupAdd.classList.remove('popup_opened')
+})
+
+buttonCloseAdd.addEventListener('click', function(){
+  popupAdd.classList.remove('popup_opened')
+}
+)
+
 
 initialCards.forEach(function (element) {
   createCadr(element.name,element.link)
 });
+
+
+// Всплывающая картинка
