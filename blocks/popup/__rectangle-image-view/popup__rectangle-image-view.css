@@ -1,0 +1,6 @@
+.popup__rectangle-image-view{
+  margin: 0;
+  max-width: 100vw;
+  max-height: 75vh;
+  position: relative;
+}

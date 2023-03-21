@@ -1,0 +1,11 @@
+.popup__container_image-view{
+  width: auto;
+  margin: auto;
+  background: none;
+}
+
+@media (max-width: 767px) {
+  .popup__container_image-view{
+    width: 282px;
+  }
+}

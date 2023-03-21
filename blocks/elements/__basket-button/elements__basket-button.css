@@ -1,4 +1,5 @@
 .elements__basket-button {
+  padding: 0;
   position: absolute;
   outline: none;
   background: rgba(0, 0, 0, 0);

@@ -19,8 +19,6 @@ const popupImageView = document.querySelector('.popup_image-view')
 const buttonCloseImageView = document.querySelector('.popup__button-close_image-view')
 
 
-
-
 // Всё про карточку с профайлом
 
 function remove(){
@@ -75,7 +73,7 @@ const initialCards = [
 ];
 
 
-const createCadr = (name,link) => {
+const createCadr = (name, link) => {
 
   let myCard=document.createElement('li')
   myCard.classList.add('elements__item')
@@ -85,6 +83,8 @@ const createCadr = (name,link) => {
   imgCard.classList.add('elements__item-image')
   imgCard.addEventListener('click', function (){
     popupImageView.classList.add('popup_opened')
+    document.querySelector('.popup__picture').src=link
+    document.querySelector('.popup__image-caption').textContent=name
   })
   imgCard.src=link
   myCard.append(imgCard)
@@ -122,7 +122,6 @@ const createCadr = (name,link) => {
 // Всё про добавление карточки
 
 elementAddButtom.addEventListener('click', function (){
-
   popupAdd.classList.add('popup_opened')
 })
 
@@ -150,11 +149,7 @@ initialCards.forEach(function (element) {
 
 // Всплывающая картинка
 
-buttonCloseImageView.addEventListener('click', function(){
-  popupImageView.classList.remove('popup_opened')
-}
-)
 
-  // imgCard.onclick = function () { 
-  //   (imgCard.classList.toggle('elements__item-image_active'))
-  // }
+buttonCloseImageView.addEventListener('click', function(){
+   popupImageView.classList.remove('popup_opened')
+})
