@@ -1,4 +1,6 @@
 .elements__item-image{
   width: 282px;
   height: 282px;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
 }

@@ -5,8 +5,7 @@ const profileTitle = document.querySelector('.profile__title')
 const profileSubTitle = document.querySelector('.profile__subtitle')
 const buttonClose = document.querySelector('.popup__button-close')
 const profileEditButton = document.querySelector('.profile__edit-button')
-const popup_profile = document.querySelector('.popup_profile')
-const likeButton = document.querySelectorAll('.elements__like-button')
+const popupProfile = document.querySelector('.popup_profile')
 const elementAddButtom = document.querySelector('.profile__add-button')
 const popupAdd = document.querySelector('.popup_items-add')
 const formAdd = document.querySelector('.popup__form_items-add')
@@ -18,11 +17,25 @@ const buttonCloseAdd = document.querySelector('.popup__button-close_items-add')
 const popupImageView = document.querySelector('.popup_image-view')
 const buttonCloseImageView = document.querySelector('.popup__button-close_image-view')
 
+// две универсальные функции openPopup и closePopup
+function openPopup(){
+  popupProfile.classList.openPopup('popup_opened')
+}
+
+function closePopup(){
+  popupProfile.classList.closePopup('popup_opened')
+}
+
+
+
+
+
+
 
 // Всё про карточку с профайлом
 
 function remove(){
-  popup_profile.classList.remove('popup_opened')
+  popupProfile.classList.remove('popup_opened')
 }
 
 form.addEventListener('submit', (event) => {
@@ -37,7 +50,7 @@ buttonClose.addEventListener('click', remove)
 profileEditButton.addEventListener('click', function (){
   inputName.value = profileTitle.textContent;
   inputDesciptoin.value = profileSubTitle.textContent;
-  popup_profile.classList.add('popup_opened')
+  popupProfile.classList.add('popup_opened')
 })
 
 
