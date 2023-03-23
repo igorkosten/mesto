@@ -20,7 +20,7 @@
           <div class="profile__info">
             <div class="profile__author-block">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button" title="Редактировать профиль"><img class="profile__edit-button-image"
+              <button class="profile__edit-button" aria-label="Редактировать профиль"><img class="profile__edit-button-image"
                   src="./images/Pensil.svg" alt="кнопка Редактировать профиль"></button>
             </div>
             <p class="profile__subtitle">Исследователь океана</p>
@@ -30,51 +30,6 @@
       </section>
       <section class="elements">
         <ul class="elements__items">
-          <!-- <li class="elements__item">
-            <img class="elements__item-image" src="./images/bugazskaya-kosa-1-700x467.jpg" alt="фото Бугазская коса">
-            <div class="elements__wrapper">
-              <h2 class="elements__item-title">Бугазская коса</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__item-image" src="./images/dolina-indijskih-lotosov-700x461.jpg"
-              alt="фото Долина индийских лотосов">
-            <div class="elements__wrapper">
-              <h2 class="elements__item-title">Долина индийских лотосов</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__item-image" src="./images/kavkazskij-biosfernyj-zapovednik-700x468.jpg"
-              alt="фото Кавказский биосферный заповедник">
-            <div class="elements__wrapper">
-              <h2 class="elements__item-title">Кавказский биосферный заповедник</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__item-image" src="./images/ozero-kardyvach-700x467.jpg" alt="фото Озеро Кардывач">
-            <div class="elements__wrapper">
-              <h2 class="elements__item-title">Озеро Кардывач</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__item-image" src="./images/ozero-sukko-700x455.jpg" alt="фото Озеро Сукко">
-            <div class="elements__wrapper">
-              <h2 class="elements__item-title">Озеро Сукко</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img class="elements__item-image" src="./images/zakaznik-bolshoj-utrish-700x466.jpg"
-              alt="фото Заказник Большой Утриш">
-            <div class="elements__wrapper">
-              <h2 class="elements__item-title">Заказник Большой Утриш</h2>
-              <button class="elements__like-button" type="button"></button>
-            </div>
-          </li> -->
         </ul>
       </section>
     </main>
@@ -83,12 +38,12 @@
     </footer>
     <div class="popup popup_profile">
       <div class="popup__container">
-        <button class="popup__button-close" type="button" aria-label="Закрыть форму">
+        <button class="popup__button-close popup__button-close_edit-form" type="button" aria-label="Закрыть форму">
         </button>
         <form class="popup__form" name="edit profile">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input popup__input_content_name" type="text" name="Name">
-          <input class="popup__input popup__input_content_desciptoin" type="text" name="Desciptoin">
+          <input class="popup__input popup__input_content_name" type="text" placeholder="Введите имя" name="Name" required>
+          <input class="popup__input popup__input_content_desciptoin" type="text" placeholder="Введите информацию о себе" name="Desciptoin" required>
           <button class="popup__button-submit" type="submit">Сохранить
           </button>
         </form>
@@ -96,14 +51,15 @@
     </div>
 
 
+    
     <div class="popup popup_items-add">
       <div class="popup__container popup__container_items-add">
         <button class="popup__button-close popup__button-close_items-add" type="button" aria-label="Закрыть форму">
         </button>
         <form class="popup__form popup__form_items-add" name="items-add">
           <h2 class="popup__title popup__title_items-add">Новое место</h2>
-          <input class="popup__input popup__input_place_name" type="text" name="place_name">
-          <input class="popup__input popup__input_place_url" type="text" name="place_url">
+          <input class="popup__input popup__input_place_name" type="text" placeholder="Введите название" name="place_name" required>
+          <input class="popup__input popup__input_place_url" type="url" placeholder="Введите ссылку" name="place_url" required>
           <button class="popup__button-submit popup__button-submit_create" type="submit">Создать</button>
         </form>
       </div>
@@ -125,8 +81,8 @@
 
 
   </div>
-  <script src="scripts/script.js">
-  </script>
+  <script defer src="scripts/constants.js"></script>
+  <script defer src="scripts/script.js"></script>
 </body>
 
 </html>

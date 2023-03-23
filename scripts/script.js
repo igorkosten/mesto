@@ -1,9 +1,9 @@
-const form = document.querySelector('.popup__form');
+const formEditProfile = document.querySelector('.popup__form');
 const inputName = document.querySelector('.popup__input_content_name');
 const inputDesciptoin = document.querySelector('.popup__input_content_desciptoin')
 const profileTitle = document.querySelector('.profile__title')
 const profileSubTitle = document.querySelector('.profile__subtitle')
-const buttonClose = document.querySelector('.popup__button-close')
+const buttonCloseFormEditProfile = document.querySelector('.popup__button-close_edit-form')
 const profileEditButton = document.querySelector('.profile__edit-button')
 const popupProfile = document.querySelector('.popup_profile')
 const elementAddButtom = document.querySelector('.profile__add-button')
@@ -18,117 +18,98 @@ const popupImageView = document.querySelector('.popup_image-view')
 const buttonCloseImageView = document.querySelector('.popup__button-close_image-view')
 
 // две универсальные функции openPopup и closePopup
-function openPopup(){
-  popupProfile.classList.openPopup('popup_opened')
+// function openPopup(){
+//   popupProfile.classList.toggle('popup_opened')
+// }
+
+// function closePopup(){
+//   popupProfile.classList.remove('popup_opened')
+// }
+
+
+
+function closePopup1(popup){
+  popup.classList.remove('popup_opened')
 }
-
-function closePopup(){
-  popupProfile.classList.closePopup('popup_opened')
-}
-
-
-
-
-
-
 
 // Всё про карточку с профайлом
 
-function remove(){
-  popupProfile.classList.remove('popup_opened')
-}
+// function closePopup(){
+//   popupProfile.classList.remove('popup_opened')
+// }
 
-form.addEventListener('submit', (event) => {
+formEditProfile.addEventListener('submit', (event) => {
   event.preventDefault();
   profileTitle.textContent = inputName.value;
   profileSubTitle.textContent = inputDesciptoin.value;
-  remove()
+  closePopup1(popupProfile)
 })
 
-buttonClose.addEventListener('click', remove)
+buttonCloseFormEditProfile.addEventListener('click', ()=>{
+  closePopup1(popupProfile)
+})
 
 profileEditButton.addEventListener('click', function (){
   inputName.value = profileTitle.textContent;
   inputDesciptoin.value = profileSubTitle.textContent;
   popupProfile.classList.add('popup_opened')
+  // openPopup()
 })
 
 
 
 // большая функция по первоначальному созданию всех карточек
 
+const createCard = (name, link) => {
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-
-const createCadr = (name, link) => {
-
-  let myCard=document.createElement('li')
+  const myCard=document.createElement('li')
   myCard.classList.add('elements__item')
   document.querySelector('.elements__items').append(myCard)
 
-  let imgCard=document.createElement('img')
+  const imgCard=document.createElement('img')
   imgCard.classList.add('elements__item-image')
   imgCard.addEventListener('click', function (){
     popupImageView.classList.add('popup_opened')
+    // openPopup()
     document.querySelector('.popup__picture').src=link
+    document.querySelector('.popup__picture').alt=name
     document.querySelector('.popup__image-caption').textContent=name
+    buttonCloseImageView.addEventListener('click', function(){
+      // popupImageView.classList.remove('popup_opened')
+      closePopup1(popupAdd)
+    })
   })
   imgCard.src=link
+  imgCard.alt=name
   myCard.append(imgCard)
 
-  let buttonCard=document.createElement('button')
-  buttonCard.classList.add('elements__basket-button')
-  myCard.append(buttonCard)
-  buttonCard.addEventListener('click', function (){
+  const buttonDeleteCard=document.createElement('button')
+  buttonDeleteCard.classList.add('elements__basket-button')
+  myCard.append(buttonDeleteCard)
+  buttonDeleteCard.addEventListener('click', function (){
   myCard.remove()
   })
 
-  let img2Card=document.createElement('img')
-  img2Card.classList.add('elements__image-button')
-  img2Card.src="./images/Trash.svg"
-  buttonCard.append(img2Card)
+  const imgButtonDeleteCard=document.createElement('img')
+  imgButtonDeleteCard.classList.add('elements__image-button')
+  imgButtonDeleteCard.src="./images/Trash.svg"
+  buttonDeleteCard.append(imgButtonDeleteCard)
 
-  let divCard=document.createElement('div')
+  const divCard=document.createElement('div')
   divCard.classList.add('elements__wrapper')
   myCard.append(divCard)
 
-  let h2Card=document.createElement('h2')
-  h2Card.classList.add('elements__item-title')
-  h2Card.innerHTML = name
-  divCard.append(h2Card)
+  const itemTitle=document.createElement('h2')
+  itemTitle.classList.add('elements__item-title')
+  itemTitle.innerHTML = name
+  divCard.append(itemTitle)
 
-  let button2Card=document.createElement('button')
-  button2Card.classList.add('elements__like-button')
-  button2Card.onclick = function () { 
-    (button2Card.classList.toggle('elements__like-button_active'))
+  const likeButton=document.createElement('button')
+  likeButton.classList.add('elements__like-button')
+  likeButton.onclick = function () { 
+    (likeButton.classList.toggle('elements__like-button_active'))
   }
-  divCard.append(button2Card)
+  divCard.append(likeButton)
 }
 
 
@@ -136,27 +117,30 @@ const createCadr = (name, link) => {
 
 elementAddButtom.addEventListener('click', function (){
   popupAdd.classList.add('popup_opened')
+  // openPopup()
 })
 
 formAdd.addEventListener('submit', (event) => {
   event.preventDefault();
 // найти инпуты
 // вызвать функцию, которая добавит карточку
-createCadr(inputPlace.value,inputUrl.value) 
 // в неё сунуть значения из двух инпутов
-
+createCard(inputPlace.value,inputUrl.value) 
+// очистить поля
+formAdd.reset();
 // закрыть попап
-popupAdd.classList.remove('popup_opened')
+// popupAdd.classList.remove('popup_opened')
+closePopup1(popupAdd)
 })
 
 buttonCloseAdd.addEventListener('click', function(){
-  popupAdd.classList.remove('popup_opened')
+  // popupAdd.classList.remove('popup_opened')////!!!!!!!!!!!!!!!
+  closePopup1(popupAdd)
 }
 )
 
-
 initialCards.forEach(function (element) {
-  createCadr(element.name,element.link)
+  createCard(element.name,element.link)
 });
 
 
@@ -164,5 +148,6 @@ initialCards.forEach(function (element) {
 
 
 buttonCloseImageView.addEventListener('click', function(){
-   popupImageView.classList.remove('popup_opened')
+  // popupImageView.classList.remove('popup_opened')
+  closePopup1(popupAdd)
 })
