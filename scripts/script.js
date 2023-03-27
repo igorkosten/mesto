@@ -56,27 +56,26 @@ profileEditButton.addEventListener('click', function (){
 // Создание карточек с помощью "template"
 
 function createCard1 (item){
-  const cardsItem = document.querySelector('.cards__item');
+  const cardsItem = document.querySelector('.elements__items');
   const cardsTemplate = document.querySelector ('#cards-template');
-  const cardsClone = cardsTemplate.content.querySelector('.cards__item').cloneNode(true);
+  const cardsClone = cardsTemplate.content.querySelector('.elements__item').cloneNode(true);
 
-  const cardsImage = cardsClone.querySelector('.cards__image');
-  const cardsTitle = cardsClone.querySelector('.cards__title');
+  const cardsImage = cardsClone.querySelector('.elements__image');
+  const cardsTitle = cardsClone.querySelector('.elements__title');
 
-  cardsImage.crs = item.link;
+  cardsImage.src = item.link;
   cardsImage.alt = item.name;
   cardsTitle.textContent = item.name;
-  
-  console.log(cardsItem)
+
 
   cardsItem.append(cardsClone);
 
 
-  // cardsCloneCadrsImage.addEventListener('clic', function() {
-  //   openPopupImageView()
-  
-  }
-  
+  cardsImage.addEventListener('click', function() {
+    openPopupImageView()
+}
+)
+}  
 
 
 
