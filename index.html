@@ -77,10 +77,24 @@
       </div>
     </div>
 
-
+    <section class="elements">
+      <ul class="elements__items">
+      </ul>
+    </section>
+    
 
 
   </div>
+  <template id="cards-template">
+    <li class="cards__item">
+      <button class="cards__removal button" type="button" aria-label="Удалить карточку"></button>
+      <img class="cards__image">
+      <div class="cards__description">
+        <h2 class="cards__title"></h2>
+        <button class="cards__like button" type="button" aria-label="Лайк"></button>
+      </div>
+    </li>
+  </template>
   <script defer src="scripts/constants.js"></script>
   <script defer src="scripts/script.js"></script>
 </body>

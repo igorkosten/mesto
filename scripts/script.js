@@ -18,106 +18,122 @@ const popupImageView = document.querySelector('.popup_image-view');
 const buttonCloseImageView = document.querySelector('.popup__button-close_image-view');
 
 // две универсальные функции openPopup и closePopup
-// function openPopup(){
-//   popupProfile.classList.toggle('popup_opened')
-// }
-
-// function closePopup(){
-//   popupProfile.classList.remove('popup_opened')
-// }
 
 
+function openPopup(popup){
+  popup.classList.add('popup_opened');
+}
 
-function closePopup1(popup){
+function closePopup(popup){
   popup.classList.remove('popup_opened');
 }
 
-// Всё про карточку с профайлом
-
-// function closePopup(){
-//   popupProfile.classList.remove('popup_opened')
-// }
 
 formEditProfile.addEventListener('submit', (event) => {
   event.preventDefault();
   profileTitle.textContent = inputName.value;
   profileSubTitle.textContent = inputDesciptoin.value;
-  closePopup1(popupProfile);
+  closePopup(popupProfile);
 });
 
 buttonCloseFormEditProfile.addEventListener('click', ()=>{
-  closePopup1(popupProfile);
+  closePopup(popupProfile);
 });
 
 profileEditButton.addEventListener('click', function (){
   inputName.value = profileTitle.textContent;
   inputDesciptoin.value = profileSubTitle.textContent;
-  popupProfile.classList.add('popup_opened');
-  // openPopup()
+  openPopup(popupProfile);
 });
+
+// 1. createCard метод должен только создавать карточку,
+//получив имя и ссылку, он должен клонировать темплейт, указать данные, установить листенеры
+//и вернуть созданную карточку.
+//2. renderCard метод должен так принять ссылку и имя, вызвать внутри createCard
+// и добавить результат вызова на страницу. 
+//Места, где сейчас вызывается createCard нужно заменить на  renderCard
+
+// Создание карточек с помощью "template"
+
+function createCard1 (item){
+  const cardsItem = document.querySelector('.cards__item');
+  const cardsTemplate = document.querySelector ('#cards-template');
+  const cardsClone = cardsTemplate.content.querySelector('.cards__item').cloneNode(true);
+
+  const cardsImage = cardsClone.querySelector('.cards__image');
+  const cardsTitle = cardsClone.querySelector('.cards__title');
+
+  cardsImage.crs = item.link;
+  cardsImage.alt = item.name;
+  cardsTitle.textContent = item.name;
+  
+  console.log(cardsItem)
+
+  cardsItem.append(cardsClone);
+
+
+  // cardsCloneCadrsImage.addEventListener('clic', function() {
+  //   openPopupImageView()
+  
+  }
+  
 
 
 
 // большая функция по первоначальному созданию всех карточек
 
-const createCard = (name, link) => {
+// const createCard = (name, link) => {
 
-  const myCard=document.createElement('li');
-  myCard.classList.add('elements__item');
-  document.querySelector('.elements__items').append(myCard);
+//   const myCard=document.createElement('li');
+//   myCard.classList.add('elements__item');
+//   document.querySelector('.elements__items').append(myCard);
 
-  const imgCard=document.createElement('img');
-  imgCard.classList.add('elements__item-image');
-  imgCard.addEventListener('click', function (){
-    popupImageView.classList.add('popup_opened');
-    // openPopup()
-    document.querySelector('.popup__picture').src=link;
-    document.querySelector('.popup__picture').alt=name;
-    document.querySelector('.popup__image-caption').textContent=name;
-    buttonCloseImageView.addEventListener('click', function(){
-      // popupImageView.classList.remove('popup_opened')
-      closePopup1(popupAdd);
-    });
-  });
-  imgCard.src=link;
-  imgCard.alt=name;
-  myCard.append(imgCard);
+//   const imgCard=document.createElement('img');
+//   imgCard.classList.add('elements__item-image');
+//   imgCard.addEventListener('click', function (){
+//     openPopup(popupImageView);
+//     document.querySelector('.popup__picture').src=link;
+//     document.querySelector('.popup__picture').alt=name;
+//     document.querySelector('.popup__image-caption').textContent=name;
+//   });
+//   imgCard.src=link;
+//   imgCard.alt=name;
+//   myCard.append(imgCard);
 
-  const buttonDeleteCard=document.createElement('button');
-  buttonDeleteCard.classList.add('elements__basket-button');
-  myCard.append(buttonDeleteCard);
-  buttonDeleteCard.addEventListener('click', function (){
-  myCard.remove();
-  });
+//   const buttonDeleteCard=document.createElement('button');
+//   buttonDeleteCard.classList.add('elements__basket-button');
+//   myCard.append(buttonDeleteCard);
+//   buttonDeleteCard.addEventListener('click', function (){
+//   myCard.remove();
+//   });
 
-  const imgButtonDeleteCard=document.createElement('img');
-  imgButtonDeleteCard.classList.add('elements__image-button');
-  imgButtonDeleteCard.src="./images/Trash.svg";
-  buttonDeleteCard.append(imgButtonDeleteCard);
+//   const imgButtonDeleteCard=document.createElement('img');
+//   imgButtonDeleteCard.classList.add('elements__image-button');
+//   imgButtonDeleteCard.src="./images/Trash.svg";
+//   buttonDeleteCard.append(imgButtonDeleteCard);
 
-  const divCard=document.createElement('div');
-  divCard.classList.add('elements__wrapper');
-  myCard.append(divCard);
+//   const divCard=document.createElement('div');
+//   divCard.classList.add('elements__wrapper');
+//   myCard.append(divCard);
 
-  const itemTitle=document.createElement('h2');
-  itemTitle.classList.add('elements__item-title');
-  itemTitle.innerHTML = name;
-  divCard.append(itemTitle);
+//   const itemTitle=document.createElement('h2');
+//   itemTitle.classList.add('elements__item-title');
+//   itemTitle.innerHTML = name;
+//   divCard.append(itemTitle);
 
-  const likeButton=document.createElement('button');
-  likeButton.classList.add('elements__like-button');
-  likeButton.onclick = function () { 
-    (likeButton.classList.toggle('elements__like-button_active'));
-  }
-  divCard.append(likeButton);
-}
+//   const likeButton=document.createElement('button');
+//   likeButton.classList.add('elements__like-button');
+//   likeButton.onclick = function () { 
+//     (likeButton.classList.toggle('elements__like-button_active'));
+//   }
+//   divCard.append(likeButton);
+// }
 
 
 // Всё про добавление карточки
 
 elementAddButtom.addEventListener('click', function (){
-  popupAdd.classList.add('popup_opened');
-  // openPopup()
+  openPopup(popupAdd);
 });
 
 formAdd.addEventListener('submit', (event) => {
@@ -129,24 +145,28 @@ createCard(inputPlace.value,inputUrl.value);
 // очистить поля
 formAdd.reset();
 // закрыть попап
-// popupAdd.classList.remove('popup_opened')
-closePopup1(popupAdd);
+closePopup(popupAdd);
 });
 
 buttonCloseAdd.addEventListener('click', function(){
-  // popupAdd.classList.remove('popup_opened')////!!!!!!!!!!!!!!!
-  closePopup1(popupAdd);
+  closePopup(popupAdd);
 });
 
-initialCards.forEach(function (element) {
-  createCard(element.name,element.link);
+initialCards.forEach(function (item) {
+  // createCard(element.name,element.link);
+  // console.log(item)
+  createCard1 (item)
 });
+
+
+// initialCards.forEach(function (element) {
+//   createCard(element.name,element.link);
+// });
 
 
 // Всплывающая картинка
 
 
 buttonCloseImageView.addEventListener('click', function(){
-  // popupImageView.classList.remove('popup_opened')
-  closePopup1(popupAdd);
+  closePopup(popupImageView);
 });
