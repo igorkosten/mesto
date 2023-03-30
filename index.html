@@ -20,8 +20,9 @@
           <div class="profile__info">
             <div class="profile__author-block">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button" aria-label="Редактировать профиль"><img class="profile__edit-button-image"
-                  src="./images/Pensil.svg" alt="кнопка Редактировать профиль"></button>
+              <button class="profile__edit-button" aria-label="Редактировать профиль"><img
+                  class="profile__edit-button-image" src="./images/Pensil.svg"
+                  alt="кнопка Редактировать профиль"></button>
             </div>
             <p class="profile__subtitle">Исследователь океана</p>
           </div>
@@ -42,8 +43,10 @@
         </button>
         <form class="popup__form" name="edit profile">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input popup__input_content_name" type="text" placeholder="Введите имя" name="Name" required>
-          <input class="popup__input popup__input_content_desciptoin" type="text" placeholder="Введите информацию о себе" name="Desciptoin" required>
+          <input class="popup__input popup__input_content_name" type="text" placeholder="Введите имя" name="Name"
+            required>
+          <input class="popup__input popup__input_content_desciptoin" type="text"
+            placeholder="Введите информацию о себе" name="Desciptoin" required>
           <button class="popup__button-submit" type="submit">Сохранить
           </button>
         </form>
@@ -51,15 +54,17 @@
     </div>
 
 
-    
+
     <div class="popup popup_items-add">
       <div class="popup__container popup__container_items-add">
         <button class="popup__button-close popup__button-close_items-add" type="button" aria-label="Закрыть форму">
         </button>
         <form class="popup__form popup__form_items-add" name="items-add">
           <h2 class="popup__title popup__title_items-add">Новое место</h2>
-          <input class="popup__input popup__input_place_name" type="text" placeholder="Введите название" name="place_name" required>
-          <input class="popup__input popup__input_place_url" type="url" placeholder="Введите ссылку" name="place_url" required>
+          <input class="popup__input popup__input_place_name" type="text" placeholder="Введите название"
+            name="place_name" required>
+          <input class="popup__input popup__input_place_url" type="url" placeholder="Введите ссылку" name="place_url"
+            required>
           <button class="popup__button-submit popup__button-submit_create" type="submit">Создать</button>
         </form>
       </div>
@@ -68,7 +73,8 @@
 
     <div class="popup popup_image-view">
       <div class="popup__container popup__container_image-view">
-        <button class="popup__button-close popup__button-close_image-view" type="button" aria-label="Закрыть изображение">
+        <button class="popup__button-close popup__button-close_image-view" type="button"
+          aria-label="Закрыть изображение">
         </button>
         <figure class="popup__rectangle-image-view">
           <img class="popup__picture">
@@ -79,19 +85,19 @@
 
     <section class="elements">
       <ul class="elements__items">
-        
       </ul>
     </section>
-    
+
 
 
   </div>
   <template id="cards-template">
     <li class="elements__item">
-      <button class="popup__button-close popup__button-close_item-image" type="button" aria-label="Удалить карточку"></button>
-      <img class="elements__image">
-      <div class="elements__description">
-        <h2 class="elements__title"></h2>
+      <button class="popup__button-close popup__button-close_item-image" type="button"
+        aria-label="Удалить карточку"></button>
+      <img class="elements__item-image">
+      <div class="elements__wrapper">
+        <h2 class="elements__item-title"></h2>
         <button class="elements__like-button" type="button" aria-label="Лайк"></button>
       </div>
     </li>

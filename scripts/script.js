@@ -20,11 +20,11 @@ const buttonCloseImageView = document.querySelector('.popup__button-close_image-
 // две универсальные функции openPopup и closePopup
 
 
-function openPopup(popup){
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
-function closePopup(popup){
+function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
@@ -36,135 +36,90 @@ formEditProfile.addEventListener('submit', (event) => {
   closePopup(popupProfile);
 });
 
-buttonCloseFormEditProfile.addEventListener('click', ()=>{
+buttonCloseFormEditProfile.addEventListener('click', () => {
   closePopup(popupProfile);
 });
 
-profileEditButton.addEventListener('click', function (){
+profileEditButton.addEventListener('click', function () {
   inputName.value = profileTitle.textContent;
   inputDesciptoin.value = profileSubTitle.textContent;
   openPopup(popupProfile);
 });
 
-// 1. createCard метод должен только создавать карточку,
-//получив имя и ссылку, он должен клонировать темплейт, указать данные, установить листенеры
-//и вернуть созданную карточку.
-//2. renderCard метод должен так принять ссылку и имя, вызвать внутри createCard
-// и добавить результат вызова на страницу. 
-//Места, где сейчас вызывается createCard нужно заменить на  renderCard
 
-// Создание карточек с помощью "template"
+function createCard(item) {
 
-function createCard1 (item){
-  const cardsItem = document.querySelector('.elements__items');
-  const cardsTemplate = document.querySelector ('#cards-template');
+  const cardsTemplate = document.querySelector('#cards-template');
   const cardsClone = cardsTemplate.content.querySelector('.elements__item').cloneNode(true);
 
-  const cardsImage = cardsClone.querySelector('.elements__image');
-  const cardsTitle = cardsClone.querySelector('.elements__title');
+  const cardsImage = cardsClone.querySelector('.elements__item-image');
+  const cardsTitle = cardsClone.querySelector('.elements__item-title');
 
   cardsImage.src = item.link;
   cardsImage.alt = item.name;
   cardsTitle.textContent = item.name;
 
+  const likeButton = cardsClone.querySelector('.elements__like-button');
+  likeButton.onclick = function () {
+    (likeButton.classList.toggle('elements__like-button_active'));
+  }
 
-  cardsItem.append(cardsClone);
+  cardsImage.addEventListener('click', function () {
+    openPopup(popupImageView);
+    document.querySelector('.popup__picture').src = item.link;
+    document.querySelector('.popup__picture').alt = item.name;
+    document.querySelector('.popup__image-caption').textContent = item.name;
+  })
+
+  return cardsClone
+}
 
 
-  cardsImage.addEventListener('click', function() {
-    openPopupImageView()
-})
-}  
-
-
-
-// большая функция по первоначальному созданию всех карточек
-
-// const createCard = (name, link) => {
-
-//   const myCard=document.createElement('li');
-//   myCard.classList.add('elements__item');
-//   document.querySelector('.elements__items').append(myCard);
-
-//   const imgCard=document.createElement('img');
-//   imgCard.classList.add('elements__item-image');
-//   imgCard.addEventListener('click', function (){
-//     openPopup(popupImageView);
-//     document.querySelector('.popup__picture').src=link;
-//     document.querySelector('.popup__picture').alt=name;
-//     document.querySelector('.popup__image-caption').textContent=name;
-//   });
-//   imgCard.src=link;
-//   imgCard.alt=name;
-//   myCard.append(imgCard);
-
-//   const buttonDeleteCard=document.createElement('button');
-//   buttonDeleteCard.classList.add('elements__basket-button');
-//   myCard.append(buttonDeleteCard);
-//   buttonDeleteCard.addEventListener('click', function (){
-//   myCard.remove();
-//   });
-
-//   const imgButtonDeleteCard=document.createElement('img');
-//   imgButtonDeleteCard.classList.add('elements__image-button');
-//   imgButtonDeleteCard.src="./images/Trash.svg";
-//   buttonDeleteCard.append(imgButtonDeleteCard);
-
-//   const divCard=document.createElement('div');
-//   divCard.classList.add('elements__wrapper');
-//   myCard.append(divCard);
-
-//   const itemTitle=document.createElement('h2');
-//   itemTitle.classList.add('elements__item-title');
-//   itemTitle.innerHTML = name;
-//   divCard.append(itemTitle);
-
-//   const likeButton=document.createElement('button');
-//   likeButton.classList.add('elements__like-button');
-//   likeButton.onclick = function () { 
-//     (likeButton.classList.toggle('elements__like-button_active'));
-//   }
-//   divCard.append(likeButton);
-// }
+function renderCard(item) {
+  const card = createCard(item);
+  const cardsItem = document.querySelector('.elements__items');
+  cardsItem.append(card);
+}
 
 
 // Всё про добавление карточки
 
-elementAddButtom.addEventListener('click', function (){
+elementAddButtom.addEventListener('click', function () {
   openPopup(popupAdd);
 });
 
 formAdd.addEventListener('submit', (event) => {
   event.preventDefault();
-// найти инпуты
-// вызвать функцию, которая добавит карточку
-// в неё сунуть значения из двух инпутов
-createCard(inputPlace.value,inputUrl.value);
-// очистить поля
-formAdd.reset();
-// закрыть попап
-closePopup(popupAdd);
+  // найти инпуты
+  // вызвать функцию, которая добавит карточку
+  // в неё сунуть значения из двух инпутов
+  const item = {
+    name: inputPlace.value,
+    link: inputUrl.value,
+  }
+  const card = createCard(item)
+  renderCard(item)
+  // очистить поля
+  formAdd.reset();
+  // закрыть попап
+  closePopup(popupAdd);
 });
 
-buttonCloseAdd.addEventListener('click', function(){
+buttonCloseAdd.addEventListener('click', function () {
   closePopup(popupAdd);
 });
 
 initialCards.forEach(function (item) {
   // createCard(element.name,element.link);
   // console.log(item)
-  createCard1 (item)
+  const card = createCard(item)
+  console.log(card)
+  renderCard(item)
 });
-
-
-// initialCards.forEach(function (element) {
-//   createCard(element.name,element.link);
-// });
 
 
 // Всплывающая картинка
 
-
-buttonCloseImageView.addEventListener('click', function(){
+buttonCloseImageView.addEventListener('click', function () {
   closePopup(popupImageView);
 });
