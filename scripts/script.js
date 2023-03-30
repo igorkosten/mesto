@@ -73,8 +73,7 @@ function createCard1 (item){
 
   cardsImage.addEventListener('click', function() {
     openPopupImageView()
-}
-)
+})
 }  
 
 
