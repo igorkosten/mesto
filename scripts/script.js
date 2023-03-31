@@ -78,7 +78,7 @@ function createCard(item) {
 function renderCard(item) {
   const card = createCard(item);
   const cardsItem = document.querySelector('.elements__items');
-  cardsItem.append(card);
+  cardsItem.prepend(card);
 }
 
 
