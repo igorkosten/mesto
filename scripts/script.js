@@ -1,11 +1,11 @@
-const formEditProfile = document.querySelector('.popup__form');
+const popupProfile = document.querySelector('.popup_profile');
+const formEditProfile = popupProfile.querySelector('.popup__form');
 const inputName = document.querySelector('.popup__input_content_name');
 const inputDesciptoin = document.querySelector('.popup__input_content_desciptoin');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubTitle = document.querySelector('.profile__subtitle');
 const buttonCloseFormEditProfile = document.querySelector('.popup__button-close_edit-form');
 const profileEditButton = document.querySelector('.profile__edit-button');
-const popupProfile = document.querySelector('.popup_profile');
 const elementAddButtom = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_items-add');
 const formAdd = document.querySelector('.popup__form_items-add');
@@ -61,8 +61,17 @@ function createCard(item) {
 
   const likeButton = cardsClone.querySelector('.elements__like-button');
   likeButton.onclick = function () {
-    (likeButton.classList.toggle('elements__like-button_active'));
+    likeButton.classList.toggle('elements__like-button_active');
   }
+
+  
+
+  const buttonDeleteCard = cardsClone.querySelector('.elements__basket-button')
+  buttonDeleteCard.classList.add('elements__basket-button')
+  cardsClone.append(buttonDeleteCard)
+  buttonDeleteCard.addEventListener('click', function () {
+    cardsClone.remove()
+  })
 
   cardsImage.addEventListener('click', function () {
     openPopup(popupImageView);
@@ -80,7 +89,6 @@ function renderCard(item) {
   const cardsItem = document.querySelector('.elements__items');
   cardsItem.prepend(card);
 }
-
 
 // Всё про добавление карточки
 
@@ -110,10 +118,7 @@ buttonCloseAdd.addEventListener('click', function () {
 });
 
 initialCards.forEach(function (item) {
-  // createCard(element.name,element.link);
-  // console.log(item)
   const card = createCard(item)
-  console.log(card)
   renderCard(item)
 });
 
