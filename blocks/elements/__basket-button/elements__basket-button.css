@@ -2,11 +2,11 @@
   width: 18px;
   height: 19px;
   background-image: url("../../../images/Trash.svg");
+  background-color: transparent;
   padding: 0;
   margin: 0;
   position: absolute;
   outline: none;
-  background: rgba(0, 0, 0, 0);
   cursor: pointer;
   border: none;
   top: 20px;

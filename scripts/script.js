@@ -59,12 +59,11 @@ function createCard(item) {
   cardsImage.alt = item.name;
   cardsTitle.textContent = item.name;
 
-  const likeButton = cardsClone.querySelector('.elements__like-button');
-  likeButton.onclick = function () {
-    likeButton.classList.toggle('elements__like-button_active');
-  }
 
-  
+  const likeButton = cardsClone.querySelector('.elements__like-button');
+  likeButton.addEventListener('click', function () {
+    likeButton.classList.toggle('elements__like-button_active');
+  })
 
   const buttonDeleteCard = cardsClone.querySelector('.elements__basket-button')
   buttonDeleteCard.classList.add('elements__basket-button')
