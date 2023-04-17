@@ -41,24 +41,27 @@
       <div class="popup__container">
         <button class="popup__button-close popup__button-close_edit-form" type="button" aria-label="Закрыть форму">
         </button>
-        <form class="popup__form" name="edit profile">
+        <form class="popup__form" name="edit profile" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input popup__input_content_name" type="text" placeholder="Введите имя" name="Name"
-            required>
-          <input class="popup__input popup__input_content_desciptoin" type="text"
-            placeholder="Введите информацию о себе" name="Desciptoin" required>
+          <input class="popup__input popup__input_content_name" id="name-input" type="text" placeholder="Введите имя" name="Name"
+          required minlength="2" maxlength="40">
+          <span class="popup__span-input-error name-input-error" id="error-name-input"></span>
+
+          <input class="popup__input popup__input_content_desciptoin" id="activity-input" type="text"
+            placeholder="Введите информацию о себе" name="Desciptoin" required minlength="2" maxlength="200">
+            <span class="popup__span-input-error activity-input-error" id="error-activity-input"></span>
           <button class="popup__button-submit" type="submit">Сохранить
           </button>
         </form>
       </div>
     </div>
 
-
+Ы
     <div class="popup popup_items-add">
       <div class="popup__container popup__container_items-add">
         <button class="popup__button-close popup__button-close_items-add" type="button" aria-label="Закрыть форму">
         </button>
-        <form class="popup__form popup__form_items-add" name="items-add">
+        <form class="popup__form popup__form_items-add" name="items-add" novalidate>
           <h2 class="popup__title popup__title_items-add">Новое место</h2>
           <input class="popup__input popup__input_place_name" type="text" placeholder="Введите название"
             name="place_name" required>
@@ -102,6 +105,7 @@
   </template>
   <script defer src="scripts/constants.js"></script>
   <script defer src="scripts/script.js"></script>
+  <script defer src="scripts/validate.js"></script>
 </body>
 
 </html>

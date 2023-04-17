@@ -17,8 +17,15 @@ const buttonCloseAdd = document.querySelector('.popup__button-close_items-add');
 const popupImageView = document.querySelector('.popup_image-view');
 const buttonCloseImageView = document.querySelector('.popup__button-close_image-view');
 
-// две универсальные функции openPopup и closePopup
+const arrayValidation = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-submit',
+  inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__error_visible'
+};
 
+// две универсальные функции openPopup и closePopup
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -27,7 +34,6 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
-
 
 formEditProfile.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -41,11 +47,11 @@ buttonCloseFormEditProfile.addEventListener('click', () => {
 });
 
 profileEditButton.addEventListener('click', function () {
+  // resetValidation(formEdit, arrayValidation);
   inputName.value = profileTitle.textContent;
   inputDesciptoin.value = profileSubTitle.textContent;
   openPopup(popupProfile);
 });
-
 
 function createCard(item) {
 
@@ -58,7 +64,6 @@ function createCard(item) {
   cardsImage.src = item.link;
   cardsImage.alt = item.name;
   cardsTitle.textContent = item.name;
-
 
   const likeButton = cardsClone.querySelector('.elements__like-button');
   likeButton.addEventListener('click', function () {
@@ -81,7 +86,6 @@ function createCard(item) {
 
   return cardsClone
 }
-
 
 function renderCard(item) {
   const card = createCard(item);
@@ -121,9 +125,10 @@ initialCards.forEach(function (item) {
   renderCard(item)
 });
 
-
 // Всплывающая картинка
 
 buttonCloseImageView.addEventListener('click', function () {
   closePopup(popupImageView);
 });
+
+enableValidation(arrayValidation);
