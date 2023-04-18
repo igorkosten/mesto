@@ -31,3 +31,11 @@
 .popup__button-submit:hover {
   opacity: 0.8;
 }
+
+.popup__button-submit:disabled {
+  background: #ffffff;
+  opacity: 0.2;
+  color: #000000;
+  cursor: auto;
+  border: 1px solid #000000;
+}
