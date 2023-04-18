@@ -63,10 +63,12 @@
         </button>
         <form class="popup__form popup__form_items-add" name="items-add" novalidate>
           <h2 class="popup__title popup__title_items-add">Новое место</h2>
-          <input class="popup__input popup__input_place_name" type="text" placeholder="Введите название"
+          <input class="popup__input popup__input_place_name" type="text" placeholder="Введите название" id="place-name"
             name="place_name" required>
-          <input class="popup__input popup__input_place_url" type="url" placeholder="Введите ссылку" name="place_url"
+            <span class="popup__span-input-error place-name-error" id="error-place-name"></span>
+          <input class="popup__input popup__input_place_url" type="url" placeholder="Введите ссылку" name="place_url" id="place-url"
             required>
+            <span class="popup__span-input-error place-url-error" id="error-place-url"></span>
           <button class="popup__button-submit popup__button-submit_create" type="submit">Создать</button>
         </form>
       </div>
@@ -104,8 +106,9 @@
     </li>
   </template>
   <script defer src="scripts/constants.js"></script>
-  <script defer src="scripts/script.js"></script>
   <script defer src="scripts/validate.js"></script>
+  <script defer src="scripts/script.js"></script>
+  
 </body>
 
 </html>
