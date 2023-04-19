@@ -1,5 +1,13 @@
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-submit',
+  inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__error_visible'
+};
+
 const showInputError = (formElement, inputElement, arrayValidation) => {
-  const {inputErrorClass, errorClass} = arrayValidation;
+  const { inputErrorClass, errorClass } = arrayValidation;
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
@@ -7,7 +15,7 @@ const showInputError = (formElement, inputElement, arrayValidation) => {
 }
 
 const hideInputError = (formElement, inputElement, arrayValidation) => {
-  const {inputErrorClass, errorClass} = arrayValidation;
+  const { inputErrorClass, errorClass } = arrayValidation;
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(inputErrorClass);
   errorElement.classList.remove(errorClass);
@@ -23,7 +31,7 @@ const checkInputValidity = (formElement, inputElement, arrayValidation) => {
 };
 
 const setEventListeners = (formElement, arrayValidation) => {
-  const {inputSelector, submitButtonSelector, ...restConfig} = arrayValidation;
+  const { inputSelector, submitButtonSelector, ...restConfig } = arrayValidation;
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
   toggleButtonState(inputList, buttonElement);
@@ -36,7 +44,7 @@ const setEventListeners = (formElement, arrayValidation) => {
 };
 
 const enableValidation = (arrayValidation) => {
-  const {formSelector, ...restConfig} = arrayValidation;
+  const { formSelector, ...restConfig } = arrayValidation;
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach((formElement) => {
     setEventListeners(formElement, restConfig);
@@ -45,21 +53,16 @@ const enableValidation = (arrayValidation) => {
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
-  return !inputElement.validity.valid;
-}); 
+    return !inputElement.validity.valid;
+  });
 };
 
 const toggleButtonState = (inputList, buttonElement) => {
-  if(hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-  }
-  else {
-    buttonElement.disabled = false;
-  }
+  buttonElement.disabled = hasInvalidInput(inputList);
 };
 
 const resetValidation = (formElement, arrayValidation) => {
-  const {inputSelector, submitButtonSelector, ...restConfig} = arrayValidation;
+  const { inputSelector, submitButtonSelector, ...restConfig } = arrayValidation;
 
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
