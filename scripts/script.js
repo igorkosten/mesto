@@ -29,7 +29,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.addEventListener('keydown', closePopupEscape);
+  document.removeEventListener('keydown', closePopupEscape);
 }
 
 function closePopupEscape(event) {
@@ -115,8 +115,9 @@ formAdd.addEventListener('submit', (event) => {
   renderCard(item)
   // очистить поля
   formAdd.reset();
+  resetValidation(formEdit, validationConfig);
   // закрыть попап
-  // closePopup(popupAdd);
+  closePopup(popupAdd);
 });
 
 // cAdd.addEventListener('click', function () {
